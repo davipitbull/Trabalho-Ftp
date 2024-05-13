@@ -1,0 +1,206 @@
+.pointer{
+    cursor: pointer;
+}
+/*--------------------------------------------------*/
+.cardH {
+    /*position: relative;*/
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.cardH:hover {
+    transform: translateY(-25px);
+}
+
+
+/*----------------------------------------------------------*/
+.round {
+    border-radius: 100%;
+    overflow: hidden;
+    height: 150px;
+    width:150px;
+    background: whitesmoke;
+}
+
+/*img {*/
+/*    width: 100%;*/
+/*}*/
+
+/*-----------------------------------------------------*/
+
+.input {
+    border: 2px solid transparent;
+    width: 10em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.input:hover,
+.input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+.card{
+    cursor: pointer;
+}
+
+
+/*-----------------------LOGIN----------------------------------*/
+
+.form-container {
+    width: 320px;
+    border-radius: 0.75rem;
+    background-color: rgb(208, 208, 208);
+    padding: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+.form {
+    margin-top: 1.5rem;
+}
+
+.input-group {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.input-group label {
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-bottom: 4px;
+}
+
+.input-group input {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid rgb(145, 145, 145);
+    outline: 0;
+    background-color: rgb(208, 208, 208);
+    padding: 0.75rem 1rem;
+    color: rgb(0, 0, 0);
+}
+
+.input-group input:focus {
+    border-color: rgb(0, 0, 0);
+}
+
+.forgot {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgb(0, 0, 0);
+    margin: 8px 0 14px 0;
+}
+
+.forgot a,.signup a {
+    color: rgb(52, 52, 52);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot a:hover, .signup a:hover {
+    text-decoration: underline rgb(0, 72, 255);
+}
+
+.sign {
+    display: block;
+    width: 100%;
+    background-color: rgb(37, 37, 37);
+    padding: 0.75rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+}
+
+.social-message {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.line {
+    height: 1px;
+    flex: 1 1 0%;
+    background-color: rgb(56, 52, 52);
+}
+
+.social-message .message {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(0, 0, 0);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons .icon {
+    border-radius: 0.125rem;
+    padding: 0.75rem;
+    border: none;
+    background-color: transparent;
+    margin-left: 8px;
+}
+
+.social-icons .icon svg {
+    height: 1.25rem;
+    width: 1.25rem;
+    fill: #3a3a3a;
+}
+
+.signup {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgb(65, 65, 65);
+}
+
+.bgLogin{
+    background-color: rgba(215, 215, 215, 0.89);
+}
+
+/*==========================Carrinho=================================*/
+.carrinho{
+    height: 60vh;
+}
+.iconeCarrinho{
+    font-size: 30px;
+    margin-right: 10px;
+    color: white;
+}
+
+.bi-trash{
+    color: red;
+}
+
+.heightMax{
+    max-height: 300px;
+}
+
+
+/*====================================Checkout=============================*/
+
+.altContainer{
+    min-height: 73vh;
+}
