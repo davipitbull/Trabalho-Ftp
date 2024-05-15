@@ -5,53 +5,58 @@ include_once "./func/func.php";
 $return = conectar();
 ?>
 
+<?php
+$teste1 = listarTabela("id, nome, numero, mensagem", 'contato', 'id');
 
-
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Número</th>
-            <th>Controle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $teste1 = listarTabela("id, nome, numero", 'contato', 'id');
-        foreach ($teste1 as $row) {
-            // Certifique-se de que $row é um objeto antes de acessar suas propriedades
-            if (is_object($row)) {
-                $id = $row->id;
-                $nome = $row->nome;
-                $numero = $row->numero;
-
+if (is_array($teste1) || is_object($teste1)) {
+    if (!empty($teste1)) {
         ?>
-                <tr>
-                    <td><?php echo $id ?></td>
-                    <td><?php echo $nome ?></td>
-                    <td><?php echo $numero ?></td>
-
-
-
-                    <td class="text-center">
-                        <form action="./api/excluirContato.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $id ?>">
-                            <button style="background-color: red;" type="submit" name="excluir">Excluir</button>
-                        </form>
-                    </td>
-                </tr>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Número</th>
+                        <th>Mensagem</th>
+                        <th>Controle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($teste1 as $row) {
+                        $id = $row->id;
+                        $nome = $row->nome;
+                        $numero = $row->numero;
+                        $mensagem = $row->mensagem;
+                        ?>
+                        <tr>
+                            <td><?php echo $id ?></td>
+                            <td><?php echo $nome ?></td>
+                            <td><?php echo $numero ?></td>
+                            <td><?php echo $mensagem ?></td>
+                            <td class="text-center">
+                                <form action="./api/excluirContato.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                                    <button class="btn btn-danger" type="submit" name="excluir">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
         <?php
-            }
-        }
+    } else {
         ?>
-    </tbody>
-</table>
-
-<!-- Modal de Edição -->
-
-
-<!-- Modal de Cadastro -->
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <h1>Sem Resultado!</h1>
+        <?php
+    }
+} else {
+    ?>
+    <h1>Sem Resultado!</h1>
+    <?php
+}
+?>

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os dados do formulário
     $nome = $_POST["nome"]; 
     $numero = $_POST["numero"]; 
-
+    $mensagem = $_POST["mensagem"];
 
     // Valide os dados conforme necessário
 
@@ -16,19 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Conecta ao banco de dados usando PDO
         $conexao = conectar();
 
-        // Prepara a consulta SQL para inserir um novo registro na tabela teste1
-        $query = "INSERT INTO contato (nome, numero) VALUES (:nome, :numero)"; // Insere a data atual como cadastro
+        // Prepara a consulta SQL para inserir um novo registro na tabela contato
+        $query = "INSERT INTO contato (nome, numero, mensagem) VALUES (:nome, :numero, :mensagem)";
         $stmt = $conexao->prepare($query);
 
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":numero", $numero);
-
+        $stmt->bindParam(":mensagem", $mensagem);
 
         // Executa a consulta
         $stmt->execute();
 
         // Redireciona de volta para a página principal ou para onde desejar após a inserção
-        header("Location: ../index.php");
+        header("Location: ../index.php?status=success");
         exit();
     } catch (PDOException $e) {
         // Em caso de erro, você pode tratar de acordo com suas necessidades
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Se o formulário não foi submetido, redireciona de volta para a página principal
-    header("Location: ./index.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>

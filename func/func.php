@@ -1,4 +1,5 @@
 <?php
+
 function listarTabela($campos, $tabela, $campoOrdem)
 {
     $conn = conectar();
@@ -12,12 +13,14 @@ function listarTabela($campos, $tabela, $campoOrdem)
             return $sqlLista->fetchAll(PDO::FETCH_OBJ);
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 function ValidarSenha($campos, $tabela, $campoBdstring, $campoBdstring2, $campoParametro, $campoParametro2, $campobdativo, $valorativo)
@@ -26,8 +29,8 @@ function ValidarSenha($campos, $tabela, $campoBdstring, $campoBdstring2, $campoP
     try {
         $conn->beginTransaction();
         $sqlLista = $conn->prepare("SELECT $campos"
-            .  " FROM $tabela"
-            .  " WHERE $campoBdstring = ? AND $campoBdstring2 = ? AND $campobdativo = ?");
+            . " FROM $tabela"
+            . " WHERE $campoBdstring = ? AND $campoBdstring2 = ? AND $campobdativo = ?");
         $sqlLista->bindValue(1, $campoParametro, PDO::PARAM_STR);
         $sqlLista->bindValue(2, $campoParametro2, PDO::PARAM_STR);
         $sqlLista->bindValue(3, $valorativo, PDO::PARAM_STR);
@@ -37,12 +40,14 @@ function ValidarSenha($campos, $tabela, $campoBdstring, $campoBdstring2, $campoP
             return $sqlLista->fetchAll(PDO::FETCH_OBJ);
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (Throwable $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 
@@ -61,12 +66,14 @@ function InsertDoisId($Campos, $tabela, $CampoValor1, $CampoValor2)
             return $IdInsertRetorno;
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 function InsertTresId($Campos, $tabela, $CampoValor1, $CampoValor2, $CampoValor3)
@@ -85,12 +92,14 @@ function InsertTresId($Campos, $tabela, $CampoValor1, $CampoValor2, $CampoValor3
             return $IdInsertRetorno;
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 
@@ -107,12 +116,14 @@ function listarId($campos, $tabela, $campoId, $campoIdValor)
             return $sqlLista->fetchAll(PDO::FETCH_OBJ);
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 function editarTabela($Campos, $tabela, $idCampo, $idCampoValor)
@@ -126,15 +137,17 @@ function editarTabela($Campos, $tabela, $idCampo, $idCampoValor)
         $conn->commit();
 
         if ($sqlLista->rowCount() > 0) {
-            return $sqlLista -> rowCount();
+            return $sqlLista->rowCount();
         } else {
             return 'Vazio';
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 function deletarTabela($tabela, $idCampo, $idCampoValor)
@@ -146,17 +159,19 @@ function deletarTabela($tabela, $idCampo, $idCampoValor)
         $sqlLista->bindValue(1, $idCampoValor, PDO::PARAM_STR);
         $sqlLista->execute();
         $conn->commit();
-        
+
         if ($sqlLista->rowCount() > 0) {
             return $sqlLista->rowCount();
         } else {
             return 0;
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 
@@ -174,7 +189,8 @@ function excluirCampo($tabela, $idCampo, $idCampoValor)
             return $sqlExcluir;
         } else {
             return null;
-        };
+        }
+        ;
     } catch (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
@@ -191,8 +207,8 @@ function ValidarSenhaCriptografada($campos, $tabela, $campoBdstring, $campoBdstr
     try {
         $conn->beginTransaction();
         $sqlLista = $conn->prepare("SELECT $campos"
-            .  " FROM $tabela"
-            .  " WHERE $campoBdstring2 = ? AND $campobdativo = ?");
+            . " FROM $tabela"
+            . " WHERE $campoBdstring2 = ? AND $campobdativo = ?");
         $sqlLista->bindValue(1, $campoParametro2, PDO::PARAM_STR);
         $sqlLista->bindValue(2, $valorativo, PDO::PARAM_STR);
         $sqlLista->execute();

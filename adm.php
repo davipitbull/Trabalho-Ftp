@@ -6,7 +6,6 @@ include_once "./func/func.php";
 $return = conectar();
 
 if (!isset($_SESSION['idadm'])) {
-
     header('location: login.php');
 }
 
@@ -18,7 +17,8 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>ADM</title>
 </head>
 
@@ -56,9 +56,8 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
     }
 
     #content {
-        margin-left: 130;   
-        
-
+        margin-left: 130px;
+        padding: 20px;
     }
 
     #open-btn {
@@ -67,8 +66,6 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
         color: white;
         border: none;
         padding: 10px 15px;
-
-
     }
 
     @media (max-width: 768px) {
@@ -86,27 +83,8 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
         }
     }
 
-    table {
-        border-collapse: collapse;
-        width: 80%;
+    .table-responsive {
         margin-top: 20px;
-        margin-left: 20px;
-
-    }
-
-    th,
-    td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 1px;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
     }
 </style>
 
@@ -115,7 +93,9 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ADM</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -126,7 +106,6 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
                     <li class="nav-item">
                         <a class="nav-link" href="./api/sair.php">Sair</a>
                     </li>
-                    
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -137,17 +116,12 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
     </nav>
 
     <div id="sidebar">
-
         <a href="?page=contato">Contato</a>
-        <a href="?page=teste2">Teste2</a>
-        <a href="?page=teste3">Teste3</a>
-        <!-- Adicione mais links conforme necessário -->
+        <a href="?page=produto">Produto</a>
+        <a href="?page=banner">Banner</a>
     </div>
 
-
-
     <div id="content">
-
         <?php
         $page = isset($_GET['page']) ? $_GET['page'] : 'main';
 
@@ -155,25 +129,23 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
             case 'contato':
                 include "contato.php";
                 break;
-            case 'teste2':
-                include "teste2.php";
+            case 'produto':
+                include "produto.php";
                 break;
-            case 'teste3':
-                include "teste3.php";
+            case 'banner':
+                include "banner.php";
                 break;
-                // Adicione mais casos conforme necessário
-
             default:
                 include "main.php";
                 break;
         }
         ?>
-
     </div>
 
-
-
-    
     <script src="js/func.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
+</html>
