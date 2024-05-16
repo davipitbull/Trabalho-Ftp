@@ -1,6 +1,7 @@
-.pointer{
+.pointer {
     cursor: pointer;
 }
+
 /*--------------------------------------------------*/
 .cardH {
     /*position: relative;*/
@@ -18,7 +19,7 @@
     border-radius: 100%;
     overflow: hidden;
     height: 150px;
-    width:150px;
+    width: 150px;
     background: whitesmoke;
 }
 
@@ -47,7 +48,7 @@
     background-color: white;
 }
 
-.card{
+.card {
     cursor: pointer;
 }
 
@@ -108,13 +109,15 @@
     margin: 8px 0 14px 0;
 }
 
-.forgot a,.signup a {
+.forgot a,
+.signup a {
     color: rgb(52, 52, 52);
     text-decoration: none;
     font-size: 14px;
 }
 
-.forgot a:hover, .signup a:hover {
+.forgot a:hover,
+.signup a:hover {
     text-decoration: underline rgb(0, 72, 255);
 }
 
@@ -176,31 +179,57 @@
     color: rgb(65, 65, 65);
 }
 
-.bgLogin{
+.bgLogin {
     background-color: rgba(215, 215, 215, 0.89);
 }
 
 /*==========================Carrinho=================================*/
-.carrinho{
+.carrinho {
     height: 60vh;
 }
-.iconeCarrinho{
+
+.iconeCarrinho {
     font-size: 30px;
     margin-right: 10px;
     color: white;
 }
 
-.bi-trash{
+.bi-trash {
     color: red;
 }
 
-.heightMax{
+.heightMax {
     max-height: 300px;
 }
 
 
 /*====================================Checkout=============================*/
 
-.altContainer{
+.altContainer {
     min-height: 73vh;
+}
+
+
+
+
+/* Tornar todas as imagens responsivas */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tamanho uniforme para imagens de produtos */
+.product-img {
+    width: 100%;
+    height: 300px;
+    /* Ajuste conforme necessário */
+    object-fit: cover;
+}
+
+/* Tamanho uniforme para imagens de banners */
+.banner-img {
+    width: 100%;
+    height: 60%;
+    /* Ajuste conforme necessário */
+    object-fit: cover;
 }
