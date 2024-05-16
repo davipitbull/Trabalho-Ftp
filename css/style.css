@@ -233,3 +233,9 @@
     /* Ajuste conforme necessário */
     object-fit: cover;
 }
+
+.filter-options {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}

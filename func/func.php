@@ -23,6 +23,28 @@ function listarTabela($campos, $tabela, $campoOrdem)
     ;
     $conn = null;
 }
+
+
+
+
+function buscarProdutos($query)
+{
+    $conexao = conectar(); // Estabeleça a conexão com o banco de dados (se ainda não foi feito)
+
+    // Prepare a consulta SQL
+    $sql = "SELECT id, nome, descricao, preco, imagem FROM produto WHERE nome LIKE :query OR descricao LIKE :query";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindValue(':query', "%$query%", PDO::PARAM_STR);
+    $stmt->execute();
+
+    // Retorne os resultados
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+
+
+
+
 function ValidarSenha($campos, $tabela, $campoBdstring, $campoBdstring2, $campoParametro, $campoParametro2, $campobdativo, $valorativo)
 {
     $conn = conectar();
