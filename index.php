@@ -14,6 +14,7 @@ $products = listarTabela("id, nome, descricao, preco, imagem", 'produto', 'id');
 ?>
 
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -36,11 +37,14 @@ $products = listarTabela("id, nome, descricao, preco, imagem", 'produto', 'id');
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                     </li>
-                    <button class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal">Contato</button>
+                    <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor:pointer">Contato</a>
+
                     <a class="nav-link active" aria-current="page" href="api/sair.php">Sair</a>
+
                 </ul>
-                <a class="iconeCarrinho" href="index.php"><i class="bi bi-cart4"></i></a>
                 <form class="d-flex" role="search">
+                    <a class="iconeCarrinho" href="index.php"><i class="bi bi-cart4"></i></a>
+
                     <input class="form-control me-2 bg-light text-black" type="search" placeholder="Procurar" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                 </form>
@@ -152,11 +156,12 @@ $products = listarTabela("id, nome, descricao, preco, imagem", 'produto', 'id');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#numero').mask('(00)00000-0000');
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
+
 </html>
