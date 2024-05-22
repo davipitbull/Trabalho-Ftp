@@ -5,10 +5,6 @@ include_once "./func/func.php";
 
 $return = conectar();
 
-if (!isset($_SESSION['iduser'])) {
-    header('location: login.php');
-}
-
 $banners = listarTabela("id, nome, imagem", 'banner', 'id');
 
 // Verifica se há uma consulta de pesquisa
@@ -71,14 +67,13 @@ if (isset($_GET['q'])) {
                     </li>
                     <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal"
                         style="cursor:pointer">Contato</a>
-
-                    <a class="nav-link active" aria-current="page" href="api/sair.php">Sair</a>
-
+                    <?php if (isset($_SESSION['iduser'])) { ?>
+                        <a class="nav-link active" aria-current="page" href="api/sair.php">Sair</a>
+                    <?php } else { ?>
+                        <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                    <?php } ?>
                 </ul>
                 <a class="iconeCarrinho" href="index.php"><i class="bi bi-cart4"></i></a>
-
-
-
             </div>
         </div>
     </nav>

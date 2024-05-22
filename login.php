@@ -1,11 +1,11 @@
 <?php 
-
 include_once "./config/conexao.php";
 include_once "./config/constantes.php";
 include_once "./func/func.php";
 
 $return = conectar();
 
+session_start();
 ?>
 
 <html lang="pt-br">
@@ -23,6 +23,24 @@ $return = conectar();
 <body class="bgLogin">
 <div class="position-absolute top-50 start-50 translate-middle">
     <div class="form-container">
+        <?php if (isset($_SESSION['success_message'])) { ?>
+            <div class="alert alert-success">
+                <?php 
+                echo $_SESSION['success_message']; 
+                unset($_SESSION['success_message']); // Clear the message after displaying
+                ?>
+            </div>
+        <?php } ?>
+        
+        <?php if (isset($_SESSION['error_message'])) { ?>
+            <div class="alert alert-danger">
+                <?php 
+                echo $_SESSION['error_message']; 
+                unset($_SESSION['error_message']); // Clear the message after displaying
+                ?>
+            </div>
+        <?php } ?>
+
         <p class="title">Login</p>
         <form class="form" action="./api/logar.php" method="post">
             <div class="input-group">
@@ -32,7 +50,6 @@ $return = conectar();
             <div class="input-group">
                 <label for="password">Senha</label>
                 <input type="password" name="password" id="password" placeholder="">
-                
             </div>
             <button class="sign mt-3">Entrar</button>
         </form>
@@ -41,7 +58,6 @@ $return = conectar();
             <a rel="noopener noreferrer" href="#" class="">Crie sua conta</a>
         </p>
     </div>
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

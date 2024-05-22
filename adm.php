@@ -107,10 +107,7 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
                         <a class="nav-link" href="./api/sair.php">Sair</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+
             </div>
         </div>
     </nav>
@@ -119,6 +116,10 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
         <a href="?page=contato">Contato</a>
         <a href="?page=produto">Produto</a>
         <a href="?page=banner">Banner</a>
+        <a href="?page=admin">Admins</a>
+        <a href="?page=user">Usuários</a>
+
+
     </div>
 
     <div id="content">
@@ -134,6 +135,12 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
                 break;
             case 'banner':
                 include "banner.php";
+                break;
+            case 'admin':
+                include "admins.php";
+                break;
+            case 'user':
+                include "usuarios.php";
                 break;
             default:
                 include "main.php";
